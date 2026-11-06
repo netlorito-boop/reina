@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f7dce6">
+  <title>Una promesa para ti 💗</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; min-height: 100vh; padding: 28px 16px;
+      display: grid; place-items: center;
+      font-family: Georgia, "Times New Roman", serif;
+      color: #563442;
+      background: linear-gradient(135deg, #fff0f4, #f9dce8 55%, #f5e8f0);
+      overflow-x: hidden;
+    }
+    .card {
+      width: min(100%, 720px); padding: clamp(25px, 6vw, 52px);
+      border: 1px solid rgba(255,255,255,.85); border-radius: 28px;
+      background: rgba(255,255,255,.82);
+      box-shadow: 0 18px 60px rgba(125, 63, 91, .14);
+      text-align: center; position: relative;
+    }
+    .heart { font-size: 34px; animation: beat 1.4s infinite; }
+    h1 { margin: 12px 0 8px; color: #a33e68; font-size: clamp(2rem, 7vw, 3.2rem); }
+    .subtitle { color: #a66a81; font-style: italic; margin-bottom: 28px; }
+    .message { text-align: left; line-height: 1.85; font-size: 1.08rem; }
+    .message p { margin: 0 0 17px; }
+    .promise {
+      margin: 25px 0; padding: 18px 20px; border-left: 4px solid #d77c9e;
+      border-radius: 10px; background: #fff3f7; font-style: italic;
+    }
+    .question { margin: 30px 0 14px; font-size: 1.35rem; font-weight: bold; color: #a33e68; }
+    .button {
+      display: inline-block; padding: 15px 26px; border-radius: 999px;
+      background: #25a85a; color: white; text-decoration: none;
+      font: 600 1rem Arial, sans-serif; box-shadow: 0 8px 20px #25a85a38;
+      transition: transform .2s, background .2s;
+    }
+    .button:hover { transform: translateY(-3px); background: #1d914c; }
+    .small { margin-top: 20px; color: #987785; font:  .88rem Arial, sans-serif; line-height: 1.5; }
+    .petal { position: fixed; top: -30px; color: #d77c9e; opacity: .45; animation: fall linear infinite; pointer-events: none; }
+    @keyframes beat { 50% { transform: scale(1.16); } }
+    @keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <div class="heart">💗</div>
+    <h1>Quiero demostrarte que puedo cambiar</h1>
+    <div class="subtitle">Para la persona que sigue siendo tan especial para mí</div>
+
+    <section class="message">
+      <p>Mi niña hermosa:</p>
+      <p>Sé que las cosas no han sido fáciles entre nosotros. Sé que mi actitud y algunas de mis formas de actuar te han lastimado o te han hecho dudar de lo nuestro. No quiero ignorar eso ni hacer como si bastara con decir “perdón”. Quiero reconocerlo y trabajar de verdad para ser una mejor persona y una mejor pareja.</p>
+      <p>Te amo y quiero estar contigo. Me importa lo que sientes, lo que necesitas y la tranquilidad que mereces. No quiero prometerte que todo será perfecto de un día para otro; quiero que puedas ver cambios reales en mis acciones, en cómo te escucho, cómo te trato y cómo manejo mis errores.</p>
+      <p>No sé cómo estaré económicamente más adelante, pero sí sé que quiero esforzarme por construir un futuro y compartir contigo lo bueno que vaya logrando. No se trata de ofrecerte cosas que todavía no tengo, sino de darte cariño, respeto, apoyo y compromiso sincero.</p>
+      <div class="promise">
+        Quiero aprovechar este tiempo hasta el 25 de noviembre para demostrarte con hechos que puedo cambiar. No quiero que te quedes por presión ni por una promesa: quiero recuperar tu confianza respetando tus sentimientos y tus decisiones.
+      </div>
+      <p>Si me das la oportunidad de intentarlo, voy a tomarla con seriedad. Quiero aprender a escucharte mejor, controlar mis reacciones, respetar tus espacios y cuidar lo que tenemos. No quiero cambiar solo para evitar perderte; también quiero hacerlo porque reconozco que necesito mejorar.</p>
+      <p>Te amo, quiero estar contigo y deseo que podamos construir algo bonito, sano y tranquilo. Gracias por leerme y por decirme con sinceridad lo que necesitas. ❤️</p>
+      <p style="text-align:right; color:#a33e68;"><strong>Con mucho amor,<br>Deivy</strong></p>
+    </section>
+
+    <div class="question">¿Quieres que cambie?</div>
+    <a class="button" id="whatsappButton" href="#" target="_blank" rel="noopener">
+      Responder por WhatsApp 💬
+    </a>
+    <div class="small">Tu respuesta es importante para mí. Quiero escucharte con respeto y sin presionarte.</div>
+  </main>
+
+  <script>
+    // CAMBIA este número por el tuyo: código de país + número, sin +, espacios ni guiones.
+    // Ejemplo Colombia: 573001234567
+    const MI_NUMERO = "573024831757";
+
+    const mensaje = "Leí tu mensaje. Sobre tu pregunta: ¿quieres que cambie? Mi respuesta es: ";
+    document.getElementById("whatsappButton").href =
+      "https://wa.me/" + MI_NUMERO + "?text=" + encodeURIComponent(mensaje);
+
+    // Corazones decorativos flotando
+    for (let i = 0; i < 14; i++) {
+      const petal = document.createElement("span");
+      petal.className = "petal";
+      petal.textContent = Math.random() > 0.5 ? "♡" : "♥";
+      petal.style.left = Math.random() * 100 + "vw";
+      petal.style.animationDuration = (8 + Math.random() * 10) + "s";
+      petal.style.animationDelay = (-Math.random() * 15) + "s";
+      petal.style.fontSize = (14 + Math.random() * 18) + "px";
+      document.body.appendChild(petal);
+    }
+  </script>
+</body>
+</html>
